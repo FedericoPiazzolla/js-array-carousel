@@ -1,10 +1,10 @@
 // dichiaro l'array delle immagini
 const images = [
-  "img/01.png",
-  "img/02.png",
-  "img/03.png", 
-  "img/04.png", 
-  "img/05.png"
+  "img/01.jpg",
+  "img/02.jpg",
+  "img/03.jpg", 
+  "img/04.jpg", 
+  "img/05.jpg"
 ];
 console.log(images);
 
@@ -16,9 +16,21 @@ let imageString = "";
 for (let i = 0; i < images.length; i++) {
   const curImages = images[i];
 
-  imageString += `<div class="item active">
+  imageString += `<div class="item">
     <img src="${curImages}" alt="">
     </div>`
   
 }
 console.log(imageString);
+
+itemsElem.innerHTML = imageString;
+
+// Mostro immagini su html
+const slideElems = document.querySelectorAll(".item");
+console.log(slideElems)
+
+// Partenza del carosello
+let currentSlideIndex = 0;
+slideElems[currentSlideIndex].classList.add("active");
+
+// cambio immagine con la freccia verso il basso
