@@ -40,6 +40,17 @@ document.getElementsByClassName("next")[0].addEventListener("click", function() 
     slideElems[currentSlideIndex].classList.remove("active");
     currentSlideIndex++;
     slideElems[currentSlideIndex].classList.add("active");
-  }
+  };
   
+});
+
+// cambio immagine con la freccia verso l'alto
+document.getElementsByClassName("prev")[0].addEventListener("click", function() {
+
+  if (slideElems.length > currentSlideIndex) {
+    slideElems[currentSlideIndex].classList.remove("active");
+    currentSlideIndex--;
+    slideElems[currentSlideIndex].classList.add("active");
+  }
+
 })
