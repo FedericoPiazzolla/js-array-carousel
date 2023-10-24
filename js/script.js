@@ -23,7 +23,7 @@ for (let i = 0; i < images.length; i++) {
 }
 console.log(imageString);
 
-itemsElem.innerHTML = imageString;
+itemsElem.innerHTML += imageString;
 
 // Mostro immagini su html
 const slideElems = document.querySelectorAll(".item");
@@ -34,3 +34,12 @@ let currentSlideIndex = 0;
 slideElems[currentSlideIndex].classList.add("active");
 
 // cambio immagine con la freccia verso il basso
+document.getElementsByClassName("next")[0].addEventListener("click", function() {
+
+  if (currentSlideIndex < slideElems.length - 1) {
+    slideElems[currentSlideIndex].classList.remove("active");
+    currentSlideIndex++;
+    slideElems[currentSlideIndex].classList.add("active");
+  }
+  
+})
