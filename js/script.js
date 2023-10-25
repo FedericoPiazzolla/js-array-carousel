@@ -16,9 +16,10 @@ let imageString = "";
 for (let i = 0; i < images.length; i++) {
   const curImages = images[i];
 
-  imageString += `<div class="item">
-    <img src="${curImages}" alt="">
-    </div>`
+  imageString += `
+    <div class="item">
+      <img src="${curImages}" alt="">
+    </div>`;
   
 }
 console.log(imageString);
@@ -36,21 +37,37 @@ slideElems[currentSlideIndex].classList.add("active");
 // cambio immagine con la freccia verso il basso
 document.getElementsByClassName("next")[0].addEventListener("click", function() {
 
+  slideElems[currentSlideIndex].classList.remove("active");
+
   if (currentSlideIndex < slideElems.length - 1) {
-    slideElems[currentSlideIndex].classList.remove("active");
+
     currentSlideIndex++;
-    slideElems[currentSlideIndex].classList.add("active");
+
+  } else {
+
+    currentSlideIndex = 0;
+
   };
+
+  slideElems[currentSlideIndex].classList.add("active");
   
 });
 
 // cambio immagine con la freccia verso l'alto
 document.getElementsByClassName("prev")[0].addEventListener("click", function() {
 
-  if (slideElems.length > currentSlideIndex) {
-    slideElems[currentSlideIndex].classList.remove("active");
-    currentSlideIndex--;
-    slideElems[currentSlideIndex].classList.add("active");
-  }
+  slideElems[currentSlideIndex].classList.remove("active");
 
-})
+  if (currentSlideIndex > 0) {
+    
+    currentSlideIndex--;
+
+  } else {
+
+    currentSlideIndex = slideElems.length - 1;
+
+  };
+
+  slideElems[currentSlideIndex].classList.add("active");
+
+});
